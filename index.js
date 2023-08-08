@@ -11,7 +11,7 @@ const credentials = require('./middleware/credentials')
 const errorHandlerMiddleware = require('./middleware/error_handler')
 
 const app = express()
-const PORT = process.env.PORT
+const PORT = 3500
 
 connectDB()
 
@@ -37,7 +37,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(errorHandlerMiddleware)
 
 // Routes
-app.use('api/auth', require('./routes/api/auth'))
+app.use('/api/auth', require('./routes/api/auth'))
 app.all('*', (req, res) => {
     res.status(404)
 
