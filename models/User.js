@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = Schema(
+const UserSchema = Schema(
   {
-    username: {
+    company_name: {
       type: String,
       required: true,
     },
+
     email: {
       type: String,
       required: true,
@@ -17,6 +18,12 @@ const userSchema = Schema(
         (val) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(val),
       ],
     },
+
+    address: {
+      type: String,
+      required: true,
+    },
+
     first_name: {
       type: String,
       required: true,
