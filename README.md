@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Make sure you have the following software installed on your machine:
+Make sure you have the following software/runtime installed on your machine:
 
 - Node (version 14.21.3) and above
 
