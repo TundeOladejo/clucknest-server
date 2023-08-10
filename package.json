@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Babatunde Oladejo",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.22.6",
