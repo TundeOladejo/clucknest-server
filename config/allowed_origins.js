@@ -1,7 +1,5 @@
-const origins = [
-    process.env.API_URL,
-    "http://192.168.0.148:8081",
-    "http://192.168.80.131:8081"
+const allowedOrigins = [
+    `${process.env.WEB_URL}`,
 ]
 
-module.exports = origins
+module.exports = allowedOrigins

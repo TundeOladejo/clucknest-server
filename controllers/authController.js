@@ -95,7 +95,10 @@ async function login(req, res) {
     secure: true,
     maxAge: 24 * 60 * 60 * 1000,
   });
-  res.json({ access_token: accessToken });
+  res.json({
+    access_token: accessToken,
+    company_name: user.company_name
+   });
 }
 
 async function logout(req, res) {

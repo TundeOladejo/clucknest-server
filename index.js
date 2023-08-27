@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -11,7 +12,7 @@ const credentials = require('./middleware/credentials')
 const errorHandlerMiddleware = require('./middleware/error_handler')
 
 const app = express()
-const PORT = 3500
+const PORT = process.env.PORT
 
 connectDB()
 
@@ -20,12 +21,13 @@ app.use(credentials)
 
 //CORS
 app.use(cors(corsOptions))
+
 // application.x-www-form-urlencoded
-app.use(express.urlencoded({
-    extended: false
-}))
-// application/json response
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+
+// parse requests of content type - application/json
+app.use(bodyParser.json());  // app.use(express.json())
+
 
 // middleware for cookies
 app.use(cookieParser())
