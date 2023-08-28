@@ -47,7 +47,12 @@ async function register(req, res) {
       last_name,
     });
 
-    return res.status(201).send({ message: "Registration Successful!" });
+    return res
+      .status(201)
+      .send({
+        message:
+          "Registration Successful! You will now be redirected to the login page",
+      });
   } catch (error) {
     return res.status(400).json({ message: "Could not register" });
   }
