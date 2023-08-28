@@ -30,7 +30,10 @@ async function register(req, res) {
 
   const userExists = await User.exists({ email }).exec();
 
-  if (userExists) return res.sendStatus(409);
+  if (userExists)
+    return res
+      .status(409)
+      .send({ message: "The email provided already exists!" });
 
   try {
     hashedPassword = await bcrypt.hash(password, 10);
@@ -44,7 +47,7 @@ async function register(req, res) {
       last_name,
     });
 
-    return res.sendStatus(201);
+    return res.status(201).send({ message: "Registration Successful!" });
   } catch (error) {
     return res.status(400).json({ message: "Could not register" });
   }
@@ -97,8 +100,8 @@ async function login(req, res) {
   });
   res.json({
     access_token: accessToken,
-    company_name: user.company_name
-   });
+    company_name: user.company_name,
+  });
 }
 
 async function logout(req, res) {
